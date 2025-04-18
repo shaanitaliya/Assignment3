@@ -1,1 +1,13 @@
 # Assignment3
+
+This Python code uses a class called `RequisitionSystem` to construct a simple Requisition Management System. It is intended to enable employees to make food requests and oversee approvals according to the items' total cost. The code exhibits object-oriented ideas such as class-level variables, object instantiation, and instance-level methods.
+
+To keep track of the total number of requisitions filed, approved, pending, and not approved, a number of class-level variables are defined at the start of the class. By increasing the base value, each request is automatically given a distinct requisition ID. The user is asked for the staff ID, date, and staff name when a new instance is established. The system is ready to receive a list of food items, and this data is saved.
+
+The user is asked to enter food products and their prices until they type "done" using the `requisitions_detail` method. The overall cost is dynamically determined by the system. The `requisition_approval` method gives the request a status based on the overall cost. "Not Approved" is displayed if the sum is zero. It is "approved" if it is less than 500. The system asks the user to manually approve or reject totals that are greater than or equal to 500, with the option to mark them as "Pending."
+
+A complete description of the request, including personnel information, items, prices, status, and reference ID, is printed via the `display_requisitions` method. Additionally, it enables the user to repeat the process in order to process more requisitions.
+
+The code has a number of problems in spite of its intended functionality. First of all, class variables should be accessed using the class name (e.g., `RequisitionSystem.approved`) rather than being declared global; this is why the `global` keyword is being used incorrectly. Second, if the user responds unexpectedly when asked to approve the requisition, the `status` variable might not be defined. Thirdly, it is bad practice and may lead to recursion issues to call `self.__init__()` inside the class to repeat the operation. Additionally, there is no input validation, thus if a user enters non-numeric values for item pricing, the system fails. Finally, there is a misspelling of the key "refference_id."
+
+In conclusion, the code lacks structure, error management, and scalability even if it successfully demonstrates fundamental programming ideas and accomplishes basic functions. Refining logic, substituting loops for recursive calls, verifying user input, and structuring the code for easier reading and maintenance are all ways to improve.
